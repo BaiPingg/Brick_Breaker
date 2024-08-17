@@ -36,18 +36,21 @@ namespace Brick_Breaker
             injector.Map<ScoreModel>().ToSingleton<ScoreModel>();
             injector.Map<GridModel>().ToSingleton<GridModel>();
 
-           
             //events
             commandMap.Map(GameProcedureEvent.Type.START_GAME).ToCommand<GameStartCommand>();
-            //commandMap.Map(GameProcedureEvent.Type.PLAY_SPLASH).ToCommand<PlaySplashCommand>();
-            // commandMap.Map(GameProcedureEvent.Type.READY_SCENE).ToCommand<ReadySceneCommand>();
-            //commandMap.Map(GameProcedureEvent.Type.START_LEVEL).ToCommand<StartLevelCommand>();
-            //commandMap.Map(GameProcedureEvent.Type.END_LEVEL).ToCommand<EndLevelCommand>();
-            //commandMap.Map(GameProcedureEvent.Type.EXIT_GAME).ToCommand<ExitGameCommand>();
-            //injector.Map<IMyModel>().ToSingleton<MyModel>();
+            commandMap.Map(RoundEvent.Type.ADD_ROUND).ToCommand<AddRoundCommand>();
+            commandMap.Map(GridEvent.Type.DestroyGridItem).ToCommand<DestroyGridItemCommand>();
+            commandMap.Map(GameProcedureEvent.Type.SETTLEMENT).ToCommand<GameSettlementCommand>();
+
+
+
             mediatorMap.Map<CurrentScoreView>().ToMediator<CurrentScoreMediator>();
             mediatorMap.Map<MaxScoreView>().ToMediator<MaxScoreMediator>();
             mediatorMap.Map<RoundView>().ToMediator<RoundMediator>();
+            mediatorMap.Map<BallView>().ToMediator<BallMediator>();
+            mediatorMap.Map<BrickView>().ToMediator<BrickMediator>();
+            mediatorMap.Map<DeadZoneView>().ToMediator<DeadZoneMediator>();
+            mediatorMap.Map<SettlementView>().ToMediator<SettlementMediator>();
 
             context.AfterInitializing(StartUp);
         }

@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Brick
   - Paddle
+  - BrickRoot
   layers:
   - Default
   - TransparentFX
@@ -14,13 +15,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Paddle
+  - Wall
+  - Ball
+  - Brick
+  - DeadZone
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MAX
   - 
   - 
   - 
